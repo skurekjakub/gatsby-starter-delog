@@ -6,6 +6,8 @@ backend:
 media_folder: static/assets
 public_folder: /assets
 
+publish_mode: editorial_workflow
+
 collections:
   - name: settings
     label: Settings
@@ -56,7 +58,7 @@ collections:
       - name: path
         label: Path
         widget: string
-        pattern: ['/', "Error message"]
+        pattern: ['/', "Path must start with '/'."]
         hint: "Path must start with /"
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
