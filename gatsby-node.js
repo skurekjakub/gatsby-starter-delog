@@ -10,6 +10,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
+        filter: {frontmatter: {template: {eq: "BlogPost"}}}
       ) {
         edges {
           node {
