@@ -58,15 +58,17 @@ export const pageQuery = graphql`
 
 const IndexPage: React.FC<IndexPageProps> = ({data}) =>
 {  
-  const Posts = data.allMarkdownRemark.edges
+  const {allMarkdownRemark: {edges}, site: {siteMetadata: {title, description}}} = data;
+  
+  const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
     <Layout>
       <Helmet>
-        <title>{data.site.siteMetadata.title}</title>
-        <meta name="description" content={data.site.siteMetadata.description} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Helmet>
       <HeroHeader/>
       <h2>Blog Posts &darr;</h2>
