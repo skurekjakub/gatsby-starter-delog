@@ -62,7 +62,9 @@ collections:
         hint: "Path must start with /"
       - name: tags
         label: Tags
-        widget: string 
+        widget: select
+        multiple: true
+        options: ["Design", "UX", "Dev"] 
         required: false
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
